@@ -1,0 +1,135 @@
+[
+	{
+		"_version": "3.2.0",
+		"identification": {
+			"id": "testDisassemblyGroup",
+			"title": "{{title}}",
+			"entityType": "group"
+		},
+		"payload": {
+			"viz": [
+				{
+					"appId": "test.disassembly.managecutlists",
+					"vizId": "CutLists-Manage"
+				}
+			]
+		},
+		"texts": [
+			{
+				"locale": "en",
+				"textDictionary": {
+					"title": "Test Disassembly Master Data"
+				}
+			},
+			{
+				"locale": "de",
+				"textDictionary": {
+					"title": " Test Disassembly Master Data"
+				}
+			},
+			{
+				"locale": "",
+				"textDictionary": {
+					"title": "Test Disassembly Master Data"
+				}
+			}
+		]
+	},
+	{
+		"_version": "3.2.0",
+		"identification": {
+			"id": "testDisassembly_Manager",
+			"entityType": "role",
+			"title": "Test Disassembly Manager"
+		},
+		"payload": {
+			"apps": [
+				{
+					"id": "test.disassembly.managecutlists"
+				}
+			],
+			"groups": [
+				{
+					"id": "testDisassemblyGroup"
+				}
+			]
+		}
+	},
+	{
+		"_version": "3.2.0",
+		"identification": {
+			"id": "testDisassemblySpace",
+			"entityType": "space",
+			"title": "{{title}}"
+		},
+		"payload": {
+			"contentNodes": [
+				{
+					"type": "page",
+					"id": "testPage_Configuration"
+				}
+			]
+		},
+		"texts": [
+			{
+				"locale": "en",
+				"textDictionary": {
+					"title": "Test Disassembly Management"
+				}
+			},
+			{
+				"locale": "de",
+				"textDictionary": {
+					"title": "Test Disassembly Management"
+				}
+			},
+			{
+				"locale": "",
+				"textDictionary": {
+					"title": "Test Disassembly Management"
+				}
+			}
+		]
+	},
+	{
+		"_version": "3.2.0",
+		"identification": {
+			"id": "testPage_Configuration",
+			"entityType": "page",
+			"title": "{{title}}"
+		},
+		"payload": {
+			"sections": [
+				{
+					"id": "testDisassemblyMasterDataSection",
+					"viz": [
+						{
+							"appId": "test.disassembly.managecutlists",
+							"vizId": "CutLists-Manage"
+						}
+					]
+				}
+			]
+		},
+		"texts": [
+			{
+				"locale": "en",
+				"textDictionary": {
+					"title": "Master data"
+				}
+			},
+			{
+				"locale": "de",
+				"textDictionary": {
+					"title": "Master data"
+				}
+			},
+			{
+				"locale": "",
+				"textDictionary": {
+					"title": "Master data"
+				}
+			}
+		]
+	}
+]

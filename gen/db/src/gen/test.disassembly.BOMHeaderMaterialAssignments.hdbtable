@@ -1,0 +1,13 @@
+COLUMN TABLE test_disassembly_BOMHeaderMaterialAssignments (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  cutListHeader_ID NVARCHAR(36),
+  disassemblyProcess_ID NVARCHAR(36),
+  material_Product NVARCHAR(18),
+  plant_Plant NVARCHAR(4),
+  bomHeader_BillOfMaterial NVARCHAR(8),
+  PRIMARY KEY(ID)
+)

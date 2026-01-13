@@ -1,0 +1,4 @@
+VIEW test_disassembly_ProductUnitOfMeasures AS SELECT
+  ProductUnitOfMeasure_0."PRODUCT",
+  ProductUnitOfMeasure_0.AlternativeUnit
+FROM Product_ProductUnitOfMeasure AS ProductUnitOfMeasure_0

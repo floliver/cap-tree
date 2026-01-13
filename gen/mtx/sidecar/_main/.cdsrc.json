@@ -1,0 +1,219 @@
+{
+	"import": {
+		"as": "cds",
+		"force": true,
+		"include_namespaces": "sap,c4c"
+	},
+	"log": {
+		"[development]": {
+			"levels": {
+				"app": "debug",
+				"cds": "info"
+			},
+			"[local]": {
+				"levels": {
+					"app": "debug",
+					"cds": "info"
+				}
+			},
+			"[production]": {
+				"levels": {
+					"app": "debug",
+					"cds": "info"
+				}
+			}
+		}
+	},
+	"sql": {
+		"native_hana_associations": false
+	},
+	"features": {
+		"preserve_computed": true,
+		"kibana_formatter": true,
+		"audit_personal_data": true,
+		"optimized_search": true,
+		"rest_new_adapter": true,
+		"assert_integrity": "db",
+		"odata_new_parser": true
+	},
+	"fiori": {
+		"lean_draft": true,
+		"draft_messages": false,
+		"direct_crud": true
+	},
+	"requires": {
+		"html5-repo": true,
+		"connectivity": true,
+		"destinations": true,
+		"[production]": {
+			"auth": "xsuaa",
+			"db": "hana",
+			"multitenancy": true
+		},
+		"[hybrid]": {
+			"auth": "mocked",
+			"db": "sqlite",
+			"multitenancy": false
+		},
+		"[development]": {
+			"auth": {
+				"kind": "mocked",
+				"users": {
+					"admin": {
+						"password": "",
+						"roles": ["DisassemblyManager"],
+						"attr": {
+							"PlantGroup": ["MPG2", "MPG", "MPGT", "MPGT2", "GC", "GA"]
+						}
+					}
+				}
+			}
+		},
+		"Plant": {
+			"kind": "odata",
+			"model": "srv/external/Plant",
+			"[local-private-cloud]": {
+				"kind": "odata",
+				"credentials": {
+					"url": "http://vhostmd1.awscloud.msg.de:8001/sap/opu/odata4/sap/api_plant_2/srvd_a2x/sap/plant/0001/",
+					"authentication": "BasicAuthentication",
+					"requestTimeout": 99999
+				}
+			},
+			"[local]": {
+				"kind": "odata",
+				"credentials": {
+					"url": "https://my416760-api.s4hana.cloud.sap/sap/opu/odata4/sap/api_plant_2/srvd_a2x/sap/plant/0001/",
+					"authentication": "BasicAuthentication",
+					"requestTimeout": 99999
+				}
+			},
+			"[production]": {
+				"credentials": {
+					"csrf": true,
+					"csrfInBatch": true,
+					"destination": "s4-cloud-ext-api-0932",
+					"path": "/sap/opu/odata4/sap/api_plant_2/srvd_a2x/sap/plant/0001/"
+				}
+			},
+			"[hybrid]": {
+				"credentials": {
+					"csrf": true,
+					"csrfInBatch": true,
+					"destination": "s4-cloud-ext-api-0932-dev",
+					"path": "/sap/opu/odata4/sap/api_plant_2/srvd_a2x/sap/plant/0001/"
+				}
+			}
+		},
+		"Product": {
+			"kind": "odata",
+			"model": "srv/external/Product",
+			"[local-private-cloud]": {
+				"kind": "odata",
+				"credentials": {
+					"url": "http://vhostmd1.awscloud.msg.de:8001/sap/opu/odata4/sap/api_product/srvd_a2x/sap/product/0002/",
+					"authentication": "BasicAuthentication",
+					"requestTimeout": 99999
+				}
+			},
+			"[local]": {
+				"kind": "odata",
+				"credentials": {
+					"url": "https://my416760-api.s4hana.cloud.sap/sap/opu/odata4/sap/api_product/srvd_a2x/sap/product/0002/",
+					"authentication": "BasicAuthentication",
+					"requestTimeout": 99999
+				}
+			},
+			"[production]": {
+				"credentials": {
+					"destination": "s4-cloud-ext-api-0932",
+					"path": "/sap/opu/odata4/sap/api_product/srvd_a2x/sap/product/0002/"
+				}
+			},
+			"[hybrid]": {
+				"credentials": {
+					"destination": "s4-cloud-ext-api-0932-dev",
+					"path": "/sap/opu/odata4/sap/api_product/srvd_a2x/sap/product/0002/"
+				}
+			}
+		},
+		"ProductionRouting": {
+			"kind": "odata-v2",
+			"model": "srv/external/ProductionRouting",
+			"csrf": true,
+			"csrfInBatch": true,
+			"[local-private-cloud]": {
+				"kind": "odata-v2",
+				"credentials": {
+					"url": "http://vhostmd1.awscloud.msg.de:8001/sap/opu/odata/sap/API_PRODUCTION_ROUTING/",
+					"authentication": "BasicAuthentication",
+					"requestTimeout": 99999
+				}
+			},
+			"[local]": {
+				"kind": "odata-v2",
+				"credentials": {
+					"url": "https://my416760-api.s4hana.cloud.sap/sap/opu/odata/sap/API_PRODUCTION_ROUTING;v=3",
+					"authentication": "BasicAuthentication",
+					"requestTimeout": 99999
+				}
+			},
+			"[production]": {
+				"credentials": {
+					"destination": "s4-cloud-ext-api-0519-dev",
+					"path": "/sap/opu/odata/sap/API_PRODUCTION_ROUTING;v=3"
+				}
+			},
+			"[hybrid]": {
+				"credentials": {
+					"destination": "s4-cloud-ext-api-0519-dev",
+					"path": "/sap/opu/odata/sap/API_PRODUCTION_ROUTING;v=3"
+				}
+			}
+		},
+		"API_BILL_OF_MATERIAL_SRV_0002": {
+			"kind": "odata-v2",
+			"model": "srv/external/API_BILL_OF_MATERIAL_SRV_0002",
+			"csrf": true,
+			"csrfInBatch": true,
+			"[local]": {
+				"kind": "odata-v2",
+				"credentials": {
+					"url": "https://my416760-api.s4hana.cloud.sap/sap/opu/odata/sap/API_BILL_OF_MATERIAL_SRV;v=2",
+					"authentication": "BasicAuthentication",
+					"requestTimeout": 99999
+				}
+			},
+			"[production]": {
+				"credentials": {
+					"destination": "s4-cloud-ext-api-0105-basic-auth",
+					"path": "/sap/opu/odata/sap/API_BILL_OF_MATERIAL_SRV;v=2"
+				}
+			},
+			"[hybrid]": {
+				"credentials": {
+					"destination": "s4-cloud-ext-api-0105-basic-auth",
+					"path": "/sap/opu/odata/sap/API_BILL_OF_MATERIAL_SRV;v=2"
+				}
+			}
+		},
+		"API_PRODUCTION_ORDER_2_SRV": {
+			"kind": "odata-v2",
+			"model": "srv/external/API_PRODUCTION_ORDER_2_SRV",
+			"csrf": true,
+			"[production]": {
+				"credentials": {
+					"destination": "s4-cloud-ext-api-0522",
+					"path": "/sap/opu/odata/sap/API_PRODUCTION_ORDER_2_SRV"
+				}
+			},
+			"[hybrid]": {
+				"kind": "odata-v2",
+				"credentials": {
+					"destination": "s4-cloud-ext-api-0522",
+					"path": "/sap/opu/odata/sap/API_PRODUCTION_ORDER_2_SRV"
+				}
+			}
+		}
+	}
+}

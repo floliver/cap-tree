@@ -1,0 +1,7 @@
+VIEW test_disassembly_ManageCutListsAppService_ProductionRoutingHeaders AS SELECT
+  ProductionRoutingHeaders_0.ProductionRoutingGroup,
+  ProductionRoutingHeaders_0.ProductionRouting,
+  ProductionRoutingHeaders_0.ProductionRoutingInternalVers,
+  ProductionRoutingHeaders_0.Plant,
+  ProductionRoutingHeaders_0.BillOfOperationsDesc
+FROM test_disassembly_ProductionRoutingHeaders AS ProductionRoutingHeaders_0

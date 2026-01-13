@@ -1,0 +1,5 @@
+VIEW localized_test_disassembly_CutTypes AS SELECT
+  coalesce(localized_1.name, L_0.name) AS name,
+  coalesce(localized_1.descr, L_0.descr) AS descr,
+  L_0.type
+FROM (test_disassembly_CutTypes AS L_0 LEFT JOIN test_disassembly_CutTypes_texts AS localized_1 ON localized_1.type = L_0.type AND localized_1.locale = SESSION_CONTEXT('LOCALE'))

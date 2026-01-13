@@ -1,0 +1,5 @@
+COLUMN TABLE test_disassembly_ProductionOrderTypes (
+  orderType NVARCHAR(4) NOT NULL,
+  orderTypeDescription NVARCHAR(5000),
+  PRIMARY KEY(orderType)
+)

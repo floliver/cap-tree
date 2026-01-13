@@ -1,0 +1,4 @@
+VIEW test_disassembly_ManageCutListsAppService_ProductUnitOfMeasures AS SELECT
+  ProductUnitOfMeasures_0."PRODUCT",
+  ProductUnitOfMeasures_0.AlternativeUnit
+FROM test_disassembly_ProductUnitOfMeasures AS ProductUnitOfMeasures_0

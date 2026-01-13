@@ -1,0 +1,1 @@
+UNIQUE INVERTED INDEX test_disassembly_PlantGroups_plantGroup ON test_disassembly_PlantGroups (name)

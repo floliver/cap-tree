@@ -1,0 +1,13 @@
+COLUMN TABLE test_disassembly_MRPCalculationHeaders (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  description NVARCHAR(5000),
+  cutListHeader_ID NVARCHAR(36),
+  plant_Plant NVARCHAR(4),
+  startDate DATE DEFAULT CURRENT_TIMESTAMP,
+  endDate DATE DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY(ID)
+)

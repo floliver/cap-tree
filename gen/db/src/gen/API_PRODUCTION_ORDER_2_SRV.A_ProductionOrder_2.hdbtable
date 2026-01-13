@@ -1,0 +1,10 @@
+COLUMN TABLE API_PRODUCTION_ORDER_2_SRV_A_ProductionOrder_2 (
+  ManufacturingOrder NVARCHAR(12) NOT NULL,
+  ManufacturingOrderType NVARCHAR(4),
+  Material NVARCHAR(18),
+  ProductionPlant NVARCHAR(4),
+  TotalQuantity DECIMAL(13, 3),
+  MfgOrderPlannedStartDate DATE,
+  MfgOrderPlannedEndDate DATE,
+  PRIMARY KEY(ManufacturingOrder)
+)

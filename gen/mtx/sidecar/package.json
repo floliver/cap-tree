@@ -1,0 +1,40 @@
+{
+	"name": "cap-tree-issue-mtx",
+	"dependencies": {
+		"@cap-js/hana": "^2.5.1",
+		"@sap/cds": "^9.6.2",
+		"@sap/cds-mtxs": "^3.6.1",
+		"@sap/hdi-deploy": "^5.6.0",
+		"@sap/xsenv": "^5.4.0",
+		"@sap/xssec": "^4.11.0",
+		"express": "^4.21.2",
+		"@sap/cds-common-content": "^3.1.0"
+	},
+	"devDependencies": {
+		"@cap-js/sqlite": "^2.1.2"
+	},
+	"engines": {
+		"node": ">=22"
+	},
+	"scripts": {
+		"start": "cds-serve"
+	},
+	"cds": {
+		"profile": "mtx-sidecar",
+		"requires": {
+			"destinations": true,
+			"connectivity": true,
+			"html5-repo": true,
+			"html5-host": {
+				"vcap": {
+					"label": "html5-apps-repo",
+					"plan": "app-host"
+				},
+				"subscriptionDependency": {
+					"uaa": "xsappname"
+				}
+			},
+			"html5-runtime": true
+		}
+	}
+}

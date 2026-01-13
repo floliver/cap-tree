@@ -1,0 +1,17 @@
+VIEW test_disassembly_ManageCutListsAppService_CutListPositions AS SELECT
+  CutListPositions_0.ID,
+  CutListPositions_0.createdAt,
+  CutListPositions_0.createdBy,
+  CutListPositions_0.modifiedAt,
+  CutListPositions_0.modifiedBy,
+  CutListPositions_0.cutListHeader_ID,
+  CutListPositions_0.parent_ID,
+  CutListPositions_0.cutHeader_ID,
+  CutListPositions_0.cutPosition_ID,
+  CutListPositions_0.percentage,
+  CutListPositions_0.type,
+  NULL AS LimitedDescendantCount,
+  NULL AS DistanceFromRoot,
+  NULL AS DrillState,
+  NULL AS LimitedRank
+FROM test_disassembly_CutListPositions AS CutListPositions_0

@@ -1,0 +1,7 @@
+COLUMN TABLE test_disassembly_CutTypes_texts (
+  locale NVARCHAR(14) NOT NULL,
+  name NVARCHAR(255),
+  descr NVARCHAR(1000),
+  type NVARCHAR(1) NOT NULL,
+  PRIMARY KEY(locale, type)
+)

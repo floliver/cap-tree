@@ -1,0 +1,9 @@
+  CONSTRAINT c__test_disassembly_CutListPositions_parent
+  ON test_disassembly_CutListPositions
+  FOREIGN KEY(parent_ID)
+  REFERENCES test_disassembly_CutListPositions(ID)
+  ON UPDATE RESTRICT
+  ON DELETE CASCADE
+  VALIDATED
+  ENFORCED
+  INITIALLY DEFERRED

@@ -1,0 +1,6 @@
+COLUMN TABLE Product_ProductDescription (
+  "PRODUCT" NVARCHAR(18) NOT NULL,
+  "LANGUAGE" NVARCHAR(2) NOT NULL,
+  ProductDescription NVARCHAR(40),
+  PRIMARY KEY("PRODUCT", "LANGUAGE")
+)

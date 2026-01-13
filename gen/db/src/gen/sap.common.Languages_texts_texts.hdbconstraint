@@ -1,0 +1,9 @@
+  CONSTRAINT c__sap_common_Languages_texts_texts
+  ON sap_common_Languages_texts
+  FOREIGN KEY(code)
+  REFERENCES sap_common_Languages(code)
+  ON UPDATE RESTRICT
+  ON DELETE CASCADE
+  VALIDATED
+  ENFORCED
+  INITIALLY DEFERRED

@@ -1,0 +1,11 @@
+COLUMN TABLE test_disassembly_CutPeriods (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  cutHeader_ID NVARCHAR(36),
+  validFrom DATE DEFAULT CURRENT_TIMESTAMP,
+  validTo DATE DEFAULT '9999-12-31',
+  PRIMARY KEY(ID)
+)

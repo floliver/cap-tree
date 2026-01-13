@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <Annotation Term="Core.Links">
+        <Collection>
+          <Record>
+            <PropertyValue Property="rel" String="author"/>
+            <PropertyValue Property="href" String="https://cap.cloud.sap"/>
+          </Record>
+        </Collection>
+      </Annotation>
+      <EntityContainer Name="EntityContainer">
+        <EntitySet Name="Product" EntityType="Product.Product"/>
+        <EntitySet Name="ProductDescription" EntityType="Product.ProductDescription"/>
+        <EntitySet Name="ProductPlant" EntityType="Product.ProductPlant"/>
+        <EntitySet Name="ProductUnitOfMeasure" EntityType="Product.ProductUnitOfMeasure"/>
+      </EntityContainer>
+      <EntityType Name="Product">
+        <Key>
+          <PropertyRef Name="Product"/>
+        </Key>
+        <Property Name="Product" Type="Edm.String" MaxLength="18" Nullable="false"/>
+      </EntityType>
+      <EntityType Name="ProductDescription">
+        <Key>
+          <PropertyRef Name="Product"/>
+          <PropertyRef Name="Language"/>
+        </Key>
+        <Property Name="Product" Type="Edm.String" MaxLength="18" Nullable="false"/>
+        <Property Name="Language" Type="Edm.String" MaxLength="2" Nullable="false"/>
+        <Property Name="ProductDescription" Type="Edm.String" MaxLength="40"/>
+      </EntityType>
+      <EntityType Name="ProductPlant">
+        <Key>
+          <PropertyRef Name="Product"/>
+          <PropertyRef Name="Plant"/>
+        </Key>
+        <Property Name="Product" Type="Edm.String" MaxLength="18" Nullable="false"/>
+        <Property Name="Plant" Type="Edm.String" MaxLength="4" Nullable="false"/>
+      </EntityType>
+      <EntityType Name="ProductUnitOfMeasure">
+        <Key>
+          <PropertyRef Name="Product"/>
+          <PropertyRef Name="AlternativeUnit"/>
+        </Key>
+        <Property Name="Product" Type="Edm.String" MaxLength="18" Nullable="false"/>
+        <Property Name="AlternativeUnit" Type="Edm.String" MaxLength="3" Nullable="false"/>
+      </EntityType>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

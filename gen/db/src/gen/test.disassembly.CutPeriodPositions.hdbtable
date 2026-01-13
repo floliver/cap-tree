@@ -1,0 +1,11 @@
+COLUMN TABLE test_disassembly_CutPeriodPositions (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  cutPeriod_ID NVARCHAR(36),
+  cutPosition_ID NVARCHAR(36),
+  quantity DECIMAL(13, 3),
+  PRIMARY KEY(ID)
+)

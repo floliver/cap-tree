@@ -1,0 +1,4 @@
+VIEW test_disassembly_ProductPlants AS SELECT
+  ProductPlant_0."PRODUCT",
+  ProductPlant_0.Plant
+FROM Product_ProductPlant AS ProductPlant_0

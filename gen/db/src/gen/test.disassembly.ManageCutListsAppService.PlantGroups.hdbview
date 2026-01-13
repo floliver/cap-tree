@@ -1,0 +1,10 @@
+VIEW test_disassembly_ManageCutListsAppService_PlantGroups AS SELECT
+  PlantGroups_0.ID,
+  PlantGroups_0.createdAt,
+  PlantGroups_0.createdBy,
+  PlantGroups_0.modifiedAt,
+  PlantGroups_0.modifiedBy,
+  PlantGroups_0.name,
+  PlantGroups_0.description,
+  PlantGroups_0.disassemblyUnit
+FROM test_disassembly_PlantGroups AS PlantGroups_0

@@ -1,0 +1,3 @@
+VIEW test_disassembly_ManageCutListsAppService_Products AS SELECT
+  Products_0."PRODUCT"
+FROM test_disassembly_Products AS Products_0

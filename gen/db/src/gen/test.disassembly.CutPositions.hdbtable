@@ -1,0 +1,12 @@
+COLUMN TABLE test_disassembly_CutPositions (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  cutHeader_ID NVARCHAR(36),
+  disassemblyQuantity DECIMAL(13, 3),
+  material_Product NVARCHAR(18),
+  markedAsDeleted BOOLEAN DEFAULT FALSE,
+  PRIMARY KEY(ID)
+)

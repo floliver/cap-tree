@@ -1,0 +1,9 @@
+  CONSTRAINT c__test_disassembly_BOMHeaderMaterialAssignments_disassemblyProcess
+  ON test_disassembly_BOMHeaderMaterialAssignments
+  FOREIGN KEY(disassemblyProcess_ID)
+  REFERENCES test_disassembly_DisassemblyProcesses(ID)
+  ON UPDATE RESTRICT
+  ON DELETE RESTRICT
+  VALIDATED
+  ENFORCED
+  INITIALLY DEFERRED

@@ -1,0 +1,20 @@
+COLUMN TABLE test_disassembly_CutRoutings (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  cutHeader_ID NVARCHAR(36),
+  plant_Plant NVARCHAR(4),
+  productionRoutingGroup_ProductionRoutingGroup NVARCHAR(8),
+  productionRoutingGroup_ProductionRouting NVARCHAR(2),
+  productionRoutingGroup_ProductionRoutingInternalVers NVARCHAR(2),
+  productionRouting_ProductionRoutingGroup NVARCHAR(8),
+  productionRouting_ProductionRouting NVARCHAR(2),
+  productionRouting_ProductionRoutingInternalVers NVARCHAR(2),
+  productionRoutingSequence_ProductionRoutingGroup NVARCHAR(8),
+  productionRoutingSequence_ProductionRouting NVARCHAR(2),
+  productionRoutingSequence_ProductionRoutingSequence NVARCHAR(6),
+  productionRoutingSequence_ProductionRoutingSqncIntVers NVARCHAR(2),
+  PRIMARY KEY(ID)
+)

@@ -1,0 +1,5 @@
+VIEW test_disassembly_ManageCutListsAppService_CutHeaderVersionsVH_texts AS SELECT
+  texts_0.locale,
+  texts_0.ID,
+  texts_0.description
+FROM test_disassembly_CutHeaderVersions_texts AS texts_0

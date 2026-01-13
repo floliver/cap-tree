@@ -1,0 +1,19 @@
+VIEW test_disassembly_ManageCutListsAppService_CutRoutings AS SELECT
+  CutRoutings_0.ID,
+  CutRoutings_0.createdAt,
+  CutRoutings_0.createdBy,
+  CutRoutings_0.modifiedAt,
+  CutRoutings_0.modifiedBy,
+  CutRoutings_0.cutHeader_ID,
+  CutRoutings_0.plant_Plant,
+  CutRoutings_0.productionRoutingGroup_ProductionRoutingGroup,
+  CutRoutings_0.productionRoutingGroup_ProductionRouting,
+  CutRoutings_0.productionRoutingGroup_ProductionRoutingInternalVers,
+  CutRoutings_0.productionRouting_ProductionRoutingGroup,
+  CutRoutings_0.productionRouting_ProductionRouting,
+  CutRoutings_0.productionRouting_ProductionRoutingInternalVers,
+  CutRoutings_0.productionRoutingSequence_ProductionRoutingGroup,
+  CutRoutings_0.productionRoutingSequence_ProductionRouting,
+  CutRoutings_0.productionRoutingSequence_ProductionRoutingSequence,
+  CutRoutings_0.productionRoutingSequence_ProductionRoutingSqncIntVers
+FROM test_disassembly_CutRoutings AS CutRoutings_0

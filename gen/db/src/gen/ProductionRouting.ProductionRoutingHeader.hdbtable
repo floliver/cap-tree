@@ -1,0 +1,8 @@
+COLUMN TABLE ProductionRouting_ProductionRoutingHeader (
+  ProductionRoutingGroup NVARCHAR(8) NOT NULL,
+  ProductionRouting NVARCHAR(2) NOT NULL,
+  ProductionRoutingInternalVers NVARCHAR(2) NOT NULL,
+  Plant NVARCHAR(4),
+  BillOfOperationsDesc NVARCHAR(40),
+  PRIMARY KEY(ProductionRoutingGroup, ProductionRouting, ProductionRoutingInternalVers)
+)

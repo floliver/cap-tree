@@ -1,0 +1,9 @@
+COLUMN TABLE test_disassembly_CutHeaders (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  latestVersion_ID NVARCHAR(36),
+  PRIMARY KEY(ID)
+)

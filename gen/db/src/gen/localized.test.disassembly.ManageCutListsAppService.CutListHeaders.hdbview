@@ -1,0 +1,14 @@
+VIEW localized_test_disassembly_ManageCutListsAppService_CutListHeaders AS SELECT
+  CutListHeaders_0.ID,
+  CutListHeaders_0.createdAt,
+  CutListHeaders_0.createdBy,
+  CutListHeaders_0.modifiedAt,
+  CutListHeaders_0.modifiedBy,
+  CutListHeaders_0.identifier,
+  CutListHeaders_0.description,
+  CutListHeaders_0.validFrom,
+  CutListHeaders_0.validTo,
+  CutListHeaders_0.material_Product,
+  CutListHeaders_0.plantGroup_ID,
+  CutListHeaders_0.calculationQuantity
+FROM localized_test_disassembly_CutListHeaders AS CutListHeaders_0

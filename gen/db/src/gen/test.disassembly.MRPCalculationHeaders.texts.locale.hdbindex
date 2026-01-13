@@ -1,0 +1,1 @@
+UNIQUE INVERTED INDEX test_disassembly_MRPCalculationHeaders_texts_locale ON test_disassembly_MRPCalculationHeaders_texts (locale, ID)

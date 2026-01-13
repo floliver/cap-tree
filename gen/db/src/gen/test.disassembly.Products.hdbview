@@ -1,0 +1,3 @@
+VIEW test_disassembly_Products AS SELECT
+  Product_0."PRODUCT"
+FROM Product_Product AS Product_0

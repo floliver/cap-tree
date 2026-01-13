@@ -1,0 +1,5 @@
+VIEW test_disassembly_ProductDescriptions AS SELECT
+  ProductDescription_0."PRODUCT",
+  ProductDescription_0."LANGUAGE",
+  ProductDescription_0.ProductDescription
+FROM Product_ProductDescription AS ProductDescription_0

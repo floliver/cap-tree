@@ -1,0 +1,9 @@
+  CONSTRAINT c__test_disassembly_MRPCalculationPositions_mrpCalculationHeader
+  ON test_disassembly_MRPCalculationPositions
+  FOREIGN KEY(mrpCalculationHeader_ID)
+  REFERENCES test_disassembly_MRPCalculationHeaders(ID)
+  ON UPDATE RESTRICT
+  ON DELETE CASCADE
+  VALIDATED
+  ENFORCED
+  INITIALLY DEFERRED

@@ -1,0 +1,9 @@
+  CONSTRAINT c__test_disassembly_CutListPositions_cutHeader
+  ON test_disassembly_CutListPositions
+  FOREIGN KEY(cutHeader_ID)
+  REFERENCES test_disassembly_CutHeaderVersions(ID)
+  ON UPDATE RESTRICT
+  ON DELETE RESTRICT
+  VALIDATED
+  ENFORCED
+  INITIALLY DEFERRED

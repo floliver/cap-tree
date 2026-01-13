@@ -1,0 +1,5 @@
+COLUMN TABLE Product_ProductUnitOfMeasure (
+  "PRODUCT" NVARCHAR(18) NOT NULL,
+  AlternativeUnit NVARCHAR(3) NOT NULL,
+  PRIMARY KEY("PRODUCT", AlternativeUnit)
+)

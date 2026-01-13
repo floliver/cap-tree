@@ -1,0 +1,5 @@
+COLUMN TABLE Product_ProductPlant (
+  "PRODUCT" NVARCHAR(18) NOT NULL,
+  Plant NVARCHAR(4) NOT NULL,
+  PRIMARY KEY("PRODUCT", Plant)
+)

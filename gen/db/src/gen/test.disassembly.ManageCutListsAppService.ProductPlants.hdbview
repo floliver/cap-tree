@@ -1,0 +1,4 @@
+VIEW test_disassembly_ManageCutListsAppService_ProductPlants AS SELECT
+  ProductPlants_0."PRODUCT",
+  ProductPlants_0.Plant
+FROM test_disassembly_ProductPlants AS ProductPlants_0

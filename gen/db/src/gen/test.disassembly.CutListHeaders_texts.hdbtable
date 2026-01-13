@@ -1,0 +1,7 @@
+COLUMN TABLE test_disassembly_CutListHeaders_texts (
+  ID_texts NVARCHAR(36) NOT NULL,
+  locale NVARCHAR(14),
+  ID NVARCHAR(36),
+  description NVARCHAR(5000),
+  PRIMARY KEY(ID_texts)
+)

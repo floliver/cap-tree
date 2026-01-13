@@ -1,0 +1,9 @@
+  CONSTRAINT c__test_disassembly_MRPCalculationPositions_cutListPosition
+  ON test_disassembly_MRPCalculationPositions
+  FOREIGN KEY(cutListPosition_ID)
+  REFERENCES test_disassembly_CutListPositions(ID)
+  ON UPDATE RESTRICT
+  ON DELETE RESTRICT
+  VALIDATED
+  ENFORCED
+  INITIALLY DEFERRED

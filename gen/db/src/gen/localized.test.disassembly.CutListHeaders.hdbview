@@ -1,0 +1,14 @@
+VIEW localized_test_disassembly_CutListHeaders AS SELECT
+  L_0.ID,
+  L_0.createdAt,
+  L_0.createdBy,
+  L_0.modifiedAt,
+  L_0.modifiedBy,
+  L_0.identifier,
+  coalesce(localized_1.description, L_0.description) AS description,
+  L_0.validFrom,
+  L_0.validTo,
+  L_0.material_Product,
+  L_0.plantGroup_ID,
+  L_0.calculationQuantity
+FROM (test_disassembly_CutListHeaders AS L_0 LEFT JOIN test_disassembly_CutListHeaders_texts AS localized_1 ON localized_1.ID = L_0.ID AND localized_1.locale = SESSION_CONTEXT('LOCALE'))

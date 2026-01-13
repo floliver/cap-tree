@@ -1,0 +1,17 @@
+COLUMN TABLE test_disassembly_DisassemblyOrders (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  description NVARCHAR(5000),
+  cutListHeader_ID NVARCHAR(36),
+  disassemblyProcess_ID NVARCHAR(36),
+  plant_Plant NVARCHAR(4),
+  productionOrder_ManufacturingOrder NVARCHAR(12),
+  _productionOrder_orderType NVARCHAR(5000) DEFAULT '',
+  _productionOrder_startDate DATE DEFAULT CURRENT_TIMESTAMP,
+  _productionOrder_endDate DATE DEFAULT CURRENT_TIMESTAMP,
+  _productionOrder_quantity INTEGER DEFAULT 0,
+  PRIMARY KEY(ID)
+)

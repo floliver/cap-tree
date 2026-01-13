@@ -1,0 +1,11 @@
+COLUMN TABLE cds_xt_Extensions (
+  ID NVARCHAR(36) NOT NULL,
+  tag NVARCHAR(5000),
+  appid NVARCHAR(5000),
+  csn NCLOB,
+  i18n NCLOB,
+  sources BLOB,
+  activated NVARCHAR(5000),
+  "TIMESTAMP" TIMESTAMP,
+  PRIMARY KEY(ID)
+)

@@ -1,0 +1,12 @@
+COLUMN TABLE test_disassembly_MRPCalculationPositions (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  cutListPosition_ID NVARCHAR(36),
+  mrpCalculationHeader_ID NVARCHAR(36),
+  overrideCutQuantity DECIMAL(13, 3),
+  overrideCutMarkedAsDeleted BOOLEAN DEFAULT FALSE,
+  PRIMARY KEY(ID)
+)

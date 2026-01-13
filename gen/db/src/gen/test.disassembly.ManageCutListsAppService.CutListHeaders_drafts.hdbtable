@@ -1,0 +1,19 @@
+COLUMN TABLE test_disassembly_ManageCutListsAppService_CutListHeaders_drafts (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP NULL,
+  createdBy NVARCHAR(255) NULL,
+  modifiedAt TIMESTAMP NULL,
+  modifiedBy NVARCHAR(255) NULL,
+  identifier NVARCHAR(5000) NULL,
+  description NVARCHAR(5000) NULL,
+  validFrom DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  validTo DATE NULL DEFAULT '9999-12-31',
+  material_Product NVARCHAR(18) NULL,
+  plantGroup_ID NVARCHAR(36) NULL,
+  calculationQuantity DECIMAL(13, 3) NULL,
+  IsActiveEntity BOOLEAN,
+  HasActiveEntity BOOLEAN,
+  HasDraftEntity BOOLEAN,
+  DraftAdministrativeData_DraftUUID NVARCHAR(36) NOT NULL,
+  PRIMARY KEY(ID, validFrom)
+)
