@@ -1,0 +1,46 @@
+# CAP cap-ts-template
+_out
+*.db
+*.sqlite
+connection.properties
+default-*.json
+.cdsrc-private.json
+gen/
+node_modules/
+target/
+dist/
+# Web IDE, App Studio
+.che/
+.gen/
+.env
+resources/
+# MTA
+*_mta_build_tmp
+*.mtar
+mta_archives/
+Makefile*.mta
+db.sqlite-*
+# Other
+.DS_Store
+*.orig
+*.log
+
+*.iml
+*.flattened-pom.xml
+
+# IDEs
+# .vscode
+# .idea
+
+# @cap-js/cds-typer
+@cds-models
+
+.vscode/
+
+coverage/
+
+# cds formatter backup
+*.bak
+
+# cache
+.eslintcache
