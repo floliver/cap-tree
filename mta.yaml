@@ -1,0 +1,286 @@
+_schema-version: "3.1"
+ID: cut
+description: Disassembly
+version: 1.0.0
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - mkdir -p resources
+        - cp workzone/cdm.json resources/cdm.json
+        - npm run build:cds
+
+modules:
+  - name: cut-srv
+    type: nodejs
+    path: gen/srv
+    requires:
+      - name: cut-auth
+      - name: cut-sm
+      - name: cut-logs
+      - name: cut-connectivity
+      - name: cut-destination-service
+      - name: cut-registry
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-live-url}
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      ignore:
+        - "*.db"
+        - srv/**/*.ts
+
+  - name: cut-destination-content
+    type: com.sap.application.content
+    requires:
+      - name: cut-html5-app-host
+        parameters:
+          service-key:
+            name: cut-html5-app-host-key
+      - name: cut-auth
+        parameters:
+          service-key:
+            name: cut-auth-key
+      - name: srv-api
+        parameters:
+          service-key:
+            name: srv-api-key
+      - name: cut-html5-runtime
+        parameters:
+          service-key:
+            name: cut-html5-runtime-key
+      - name: cut-destination-service
+        parameters:
+          content-target: true
+    parameters:
+      content:
+        subaccount:
+          destinations:
+            - Name: cutcdm-dt
+              ServiceInstanceName: cut-html5-runtime-service
+              ServiceKeyName: cut-html5-runtime-key
+              URL: https://html5-apps-repo-rt.cfapps.eu10.hana.ondemand.com/applications/cdm/test.disassembly
+          existing_destinations_policy: update
+    build-parameters:
+      no-source: true
+
+  - name: managecutlists
+    type: html5
+    path: app/managecutlists
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build:cf
+      supported-platforms: []
+  - name: cut-mtx
+    type: nodejs
+    path: gen/mtx/sidecar
+    requires:
+      - name: cut-registry
+      - name: cut-auth
+      - name: cut-destination-service
+      - name: cut-sm
+      - name: cut-connectivity
+      - name: cut-html5-app-host
+      - name: app-api
+        properties:
+          SUBSCRIPTION_URL: ~{app-protocol}://\${tenant_subdomain}-~{app-uri}
+      - name: cut-html5-runtime
+    provides:
+      - name: mtx-api
+        properties:
+          mtx-url: ${default-live-url}
+    parameters:
+      cutk-quota: 1024M
+      instances: 1
+      memory: 1024M
+      tenant-mode: shared
+      disk-quota: 512M
+    build-parameters:
+      builder: npm-ci
+    hooks:
+      - name: upgrade-tenants
+        type: task
+        phases:
+          - blue-green.application.before-start.live
+        parameters:
+          command: cds-mtx upgrade "*"
+          cutk-quota: 768M
+          memory: 512M
+          name: upgrade
+  - name: cut
+    type: approuter.nodejs
+    path: app/router
+    properties:
+      TENANT_HOST_PATTERN: ^(.*)-${default-live-uri}
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          name: cut-srv-api
+          url: ~{srv-url}
+      - name: mtx-api
+        group: destinations
+        properties:
+          name: mtx-api
+          url: ~{mtx-url}
+      - name: cut-auth
+      - name: cut-destination-service
+      - name: cut-html5-runtime
+      - name: cut-workzone
+    provides:
+      - name: app-api
+        properties:
+          app-protocol: ${protocol}
+          app-uri: ${default-live-uri}
+    parameters:
+      app-domain: ${app-name}.${default-domain}
+      app-name: cut
+      cutk-quota: 1024M
+      keep-existing-routes: true
+      memory: 1024M
+      disk-quota: 256M
+  - name: cut-app-deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: srv-api
+      - name: cut-auth
+      - name: cut-html5-app-host
+        parameters:
+          content-target: true
+    parameters:
+      config:
+        destinations:
+          - forwardAuthToken: true
+            name: cut-srv-api
+            url: ~{srv-api/srv-url}
+          - name: ui5
+            url: https://ui5.sap.com
+        cutk: 256M
+        memory: 256M
+    build-parameters:
+      build-result: resources/
+      ignore:
+        - node_modules/
+      requires:
+        - artifacts:
+            - managecutlists.zip
+          name: managecutlists
+          target-path: resources/
+
+resources:
+  - name: cut-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        tenant-mode: shared
+        xsappname: cut-${org}-${space}
+        oauth2-configuration:
+          redirect-uris:
+            - https://*~{app-api/app-uri}/**
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application
+    requires:
+      - name: app-api
+  - name: cut-connectivity
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
+
+  - name: cut-html5-app-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-name: cut-html5-app-host-service
+      service-plan: app-host
+
+  - name: cut-logs
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: application-logs
+      service-plan: lite
+
+  - name: cut-registry
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        appName: cut-${org}-${space}
+        appUrls:
+          callbackTimeoutMillis: 300000
+          getDependencies: ~{mtx-api/mtx-url}/-/cds/saas-provisioning/dependencies
+          onSubscription: ~{mtx-api/mtx-url}/-/cds/saas-provisioning/tenant/{tenantId}
+          onSubscriptionAsync: true
+          onUnSubscriptionAsync: true
+          onUpdateDependenciesAsync: true
+        category: Food Management by MSG
+        description: Disassembly
+        cutplayName: Disassembly
+        xsappname: cut-${org}-${space}
+        displayName: cut
+      service: saas-registry
+      service-plan: application
+    requires:
+      - name: mtx-api
+      - name: cut-auth
+
+  - name: cut-sm
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        acquireTimeoutMillis: max
+        polling_timeout_seconds: 480
+      polling_timeout_seconds: 240
+      service: service-manager
+      service-plan: container
+    requires:
+      - name: cut-auth
+
+  - name: cut-html5-runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-name: cut-html5-runtime-service
+      service-plan: app-runtime
+
+  - name: cut-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        #HTML5Runtime_enabled: false
+        init_data:
+          subaccount:
+            destinations:
+              - Authentication: NoAuthentication
+                Name: cutcdm-rt
+                ProxyType: Internet
+                Type: HTTP
+                CEP.HTML5contentprovider: true
+                HTML5.ForwardAuthToken: true
+                HTML5.DynamicDestination: true
+                HTML5.Timeout: 120000
+                #CEP.idpOrigin: "overwriteIdpOrigin"
+                URL: ${target-url}
+            existing_destinations_policy: update
+        version: 1.0.0
+        HTML5Runtime_enabled: true
+      service: destination
+      service-name: cut-destination-service
+      service-plan: lite
+
+  - name: cut-workzone
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: build-workzone-standard
+      service-plan: standard

@@ -1,0 +1,51 @@
+{
+  "name": "managecutlists",
+  "version": "0.0.1",
+  "private": true,
+  "description": "An SAP Fiori application.",
+  "keywords": [
+    "ui5",
+    "openui5",
+    "sapui5"
+  ],
+  "main": "webapp/index.html",
+  "devDependencies": {
+    "@sap-ux/eslint-plugin-fiori-tools": "^0.6.0",
+    "@sap/ui5-builder-webide-extension": "^1.1.8",
+    "@sap/ux-specification": "UI5-1.133",
+    "@sap/ux-ui5-tooling": "^1.17.6",
+    "@sapui5/types": "~1.133.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "@ui5/cli": "^3.11.13",
+    "typescript": "^5.1.6",
+    "ui5-task-zipper": "^0.5.0",
+    "ui5-tooling-transpile": "^3.3.7"
+  },
+  "scripts": {
+    "build:cf": "ui5 build preload --clean-dest --config ui5-deploy.yaml --include-task=generateManifestBundle generateCachebusterInfo",
+    "build": "ui5 build preload --clean-dest --config ui5-deploy.yaml",
+    "lint": "eslint ./",
+    "ts-typecheck": "tsc --noEmit",
+    "prestart": "npm run ts-typecheck",
+    "prebuild": "npm run ts-typecheck",
+    "deploy": "fiori verify",
+    "start": "ui5 serve",
+    "deploy-config": "fiori add deploy-config",
+    "build-local": "ui5 build preload --clean-dest"
+  },
+  "ui5": {
+    "dependencies": [
+      "ui5-task-zipper",
+      "@sap/ui5-builder-webide-extension",
+      "mbt"
+    ]
+  },
+  "cds": {
+    "i18n": {
+      "folders": [
+        "i18n"
+      ]
+    }
+  }
+}

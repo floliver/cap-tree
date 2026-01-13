@@ -1,0 +1,57 @@
+{
+	"scopes": [
+		{
+			"name": "$XSAPPNAME.TestDisassemblyManager",
+			"description": "TestDisassemblyManager"
+		},
+		{
+			"name": "$XSAPPNAME.TestDisassemblyOperator",
+			"description": "TestDisassemblyOperator"
+		},
+		{
+			"name": "$XSAPPNAME.mtcallback",
+			"description": "Subscription via SaaS Registry",
+			"grant-as-authority-to-apps": [
+				"$XSAPPNAME(application,sap-provisioning,tenant-onboarding)"
+			]
+		},
+		{
+			"name": "$XSAPPNAME.cds.ExtensionDeveloper",
+			"description": "Extend CAP applications via extension projects"
+		}
+	],
+	"attributes": [],
+	"role-templates": [
+		{
+			"name": "TestDisassemblyManager",
+			"description": "Test Disassembly Manager",
+			"scope-references": ["$XSAPPNAME.TestDisassemblyManager", "uaa.user"],
+			"attribute-references": []
+		},
+		{
+			"name": "TestDisassemblyOperator",
+			"description": "Test Disassembly Operator",
+			"scope-references": ["$XSAPPNAME.TestDisassemblyOperator", "uaa.user"],
+			"attribute-references": []
+		},
+		{
+			"name": "ExtensionDeveloper",
+			"description": "Extension development including UIFlex extensibility",
+			"scope-references": ["$XSAPPNAME.cds.ExtensionDeveloper"]
+		}
+	],
+	"role-collections": [
+		{
+			"name": "TestDisassemblyOperator",
+			"description": "Test Disassembly Operator",
+			"role-template-references": ["$XSAPPNAME.TestDisassemblyOperator"]
+		},
+		{
+			"name": "TestDisassemblyManager",
+			"description": "Test Disassembly Manager",
+			"role-template-references": ["$XSAPPNAME.TestDisassemblyManager"]
+		}
+	],
+	"authorities-inheritance": false,
+	"authorities": ["$XSAPPNAME.cds.ExtensionDeveloper"]
+}

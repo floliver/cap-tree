@@ -1,0 +1,12 @@
+_schema-version: '3.1'
+ID: cut-feat
+description: Test CAP Tree Issue - Feature Dev Subaccount
+version: 1.0.0
+
+resources:
+  - name: cut-destination-service
+    parameters:
+      target-url: 'https://softproviding-feature-dev-tdd.launchpad.cfapps.eu10.hana.ondemand.com'
+
+# Import the base configuration
+extends: cut

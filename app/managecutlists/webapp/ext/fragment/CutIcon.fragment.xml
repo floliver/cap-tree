@@ -1,0 +1,9 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:macros="sap.fe.macros"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+		<VBox id="CutInfoContainer" alignItems="Start">
+			<core:Icon id="CutInfoIcon" src="{= ${type} === 'H' ? 'sap-icon://tree' : 'sap-icon://product' }"/>
+		</VBox>
+</core:FragmentDefinition>

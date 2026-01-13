@@ -1,0 +1,222 @@
+{
+	"_version": "1.59.0",
+	"sap.app": {
+		"id": "test.disassembly.managecutlists",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "0.0.1"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"sourceTemplate": {
+			"id": "@sap/generator-fiori:lrop",
+			"version": "1.14.2",
+			"toolsId": "686c03cb-b813-4b2a-bf64-526645e6fdc8"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/odata/v4/ui/manage-cutlists/",
+				"type": "OData",
+				"settings": {
+					"annotations": [],
+					"odataVersion": "4.0"
+				}
+			}
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"CutLists-Manage": {
+					"semanticObject": "CutLists",
+					"action": "Manage",
+					"title": "{{flpTitle}}",
+					"info": "{{appDescription}}",
+					"icon": "sap-icon://split",
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					}
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": true,
+		"dependencies": {
+			"minUI5Version": "1.136.0",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ushell": {},
+				"sap.fe.templates": {},
+				"sap.f": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "test.disassembly.managecutlists.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"operationMode": "Server",
+					"autoExpandSelect": true,
+					"earlyRequests": true
+				}
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			}
+		},
+		"resources": {
+			"css": []
+		},
+		"routing": {
+			"config": {
+				"flexibleColumnLayout": {
+					"defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+					"defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
+				},
+				"routerClass": "sap.f.routing.Router"
+			},
+			"routes": [
+				{
+					"pattern": ":?query:",
+					"name": "CutListHeadersList",
+					"target": ["CutListHeadersList"]
+				},
+				{
+					"pattern": "CutListHeaders({key}):?query:",
+					"name": "CutListHeadersObjectPage",
+					"target": ["CutListHeadersList", "CutListHeadersObjectPage"]
+				}
+			],
+			"targets": {
+				"CutListHeadersList": {
+					"type": "Component",
+					"id": "CutListHeadersList",
+					"name": "sap.fe.templates.ListReport",
+					"options": {
+						"settings": {
+							"contextPath": "/CutListHeaders",
+							"variantManagement": "Page",
+							"navigation": {
+								"CutListHeaders": {
+									"detail": {
+										"route": "CutListHeadersObjectPage"
+									}
+								}
+							},
+							"controlConfiguration": {
+								"@com.sap.vocabularies.UI.v1.LineItem": {
+									"tableSettings": {
+										"type": "ResponsiveTable"
+									}
+								}
+							},
+							"initialLoad": "Enabled"
+						}
+					},
+					"controlAggregation": "beginColumnPages",
+					"contextPattern": ""
+				},
+				"CutListHeadersObjectPage": {
+					"type": "Component",
+					"id": "CutListHeadersObjectPage",
+					"name": "sap.fe.templates.ObjectPage",
+					"options": {
+						"settings": {
+							"editableHeaderContent": false,
+							"contextPath": "/CutListHeaders",
+							"controlConfiguration": {
+								"cutListPositions/@com.sap.vocabularies.UI.v1.LineItem#TreeView": {
+									"tableSettings": {
+										"type": "TreeTable",
+										"hierarchyQualifier": "CutListPositionsHierarchy"
+									},
+									"columns": {
+										"CutIcon": {
+											"header": "",
+											"position": {
+												"anchor": "DataField::cutHeader::description",
+												"placement": "Before"
+											},
+											"template": "test.disassembly.managecutlists.ext.fragment.CutIcon",
+											"horizontalAlign": "Center",
+											"width": "10%"
+										},
+										"DataField::cutHeader::description": {
+											"width": "10%"
+										},
+										"DataField::cutHeader_ID": {
+											"width": "10%"
+										},
+										"DataField::cutPosition_ID": {
+											"width": "0%"
+										},
+										"DataField::cutPosition::material::_ProductDescription::ProductDescription": {
+											"width": "10%"
+										},
+										"RefreshCutHeader": {
+											"header": "{i18n>UpdgradeButton}",
+											"position": {
+												"anchor": "DataField::cutPosition_ID",
+												"placement": "After"
+											},
+											"template": "test.disassembly.managecutlists.ext.fragment.RefreshCutHeader"
+										}
+									}
+								}
+							}
+						}
+					},
+					"controlAggregation": "midColumnPages",
+					"contextPattern": "/CutListHeaders({key})"
+				}
+			}
+		},
+		"rootView": {
+			"viewName": "sap.fe.templates.RootContainer.view.Fcl",
+			"type": "XML",
+			"async": true,
+			"id": "appRootView"
+		}
+	},
+	"sap.fiori": {
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
+	"sap.platform.cf": {
+		"ui5VersionNumber": "1.143.*"
+	},
+	"sap.cloud": {
+		"public": true,
+		"service": "test.disassembly"
+	}
+}
