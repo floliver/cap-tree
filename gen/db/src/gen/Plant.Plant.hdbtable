@@ -1,5 +1,0 @@
-COLUMN TABLE Plant_Plant (
-  Plant NVARCHAR(4) NOT NULL,
-  PlantName NVARCHAR(30),
-  PRIMARY KEY(Plant)
-)

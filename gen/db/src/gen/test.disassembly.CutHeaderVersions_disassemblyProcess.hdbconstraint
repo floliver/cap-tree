@@ -1,9 +1,0 @@
-  CONSTRAINT c__test_disassembly_CutHeaderVersions_disassemblyProcess
-  ON test_disassembly_CutHeaderVersions
-  FOREIGN KEY(disassemblyProcess_ID)
-  REFERENCES test_disassembly_DisassemblyProcesses(ID)
-  ON UPDATE RESTRICT
-  ON DELETE RESTRICT
-  VALIDATED
-  ENFORCED
-  INITIALLY DEFERRED

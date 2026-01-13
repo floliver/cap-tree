@@ -1,7 +1,0 @@
-VIEW test_disassembly_ManageCutListsAppService_ProductionRoutingSequences AS SELECT
-  ProductionRoutingSequences_0.ProductionRoutingGroup,
-  ProductionRoutingSequences_0.ProductionRouting,
-  ProductionRoutingSequences_0.ProductionRoutingSequence,
-  ProductionRoutingSequences_0.ProductionRoutingSqncIntVers,
-  ProductionRoutingSequences_0.SequenceText
-FROM test_disassembly_ProductionRoutingSequences AS ProductionRoutingSequences_0

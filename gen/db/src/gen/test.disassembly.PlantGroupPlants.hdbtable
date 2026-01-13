@@ -1,6 +1,0 @@
-COLUMN TABLE test_disassembly_PlantGroupPlants (
-  ID NVARCHAR(36) NOT NULL,
-  plantGroup_ID NVARCHAR(36),
-  plant_Plant NVARCHAR(4),
-  PRIMARY KEY(ID)
-)

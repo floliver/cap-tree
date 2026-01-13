@@ -1,5 +1,0 @@
-VIEW test_disassembly_ManageCutListsAppService_ProductDescriptions AS SELECT
-  ProductDescriptions_0."PRODUCT",
-  ProductDescriptions_0."LANGUAGE",
-  ProductDescriptions_0.ProductDescription
-FROM test_disassembly_ProductDescriptions AS ProductDescriptions_0

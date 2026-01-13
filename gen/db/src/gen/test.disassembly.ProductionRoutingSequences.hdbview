@@ -1,7 +1,0 @@
-VIEW test_disassembly_ProductionRoutingSequences AS SELECT
-  ProductionRoutingSequence_0.ProductionRoutingGroup,
-  ProductionRoutingSequence_0.ProductionRouting,
-  ProductionRoutingSequence_0.ProductionRoutingSequence,
-  ProductionRoutingSequence_0.ProductionRoutingSqncIntVers,
-  ProductionRoutingSequence_0.SequenceText
-FROM ProductionRouting_ProductionRoutingSequence AS ProductionRoutingSequence_0

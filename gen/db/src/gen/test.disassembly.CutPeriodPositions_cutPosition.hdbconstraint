@@ -1,9 +1,0 @@
-  CONSTRAINT c__test_disassembly_CutPeriodPositions_cutPosition
-  ON test_disassembly_CutPeriodPositions
-  FOREIGN KEY(cutPosition_ID)
-  REFERENCES test_disassembly_CutPositions(ID)
-  ON UPDATE RESTRICT
-  ON DELETE RESTRICT
-  VALIDATED
-  ENFORCED
-  INITIALLY DEFERRED

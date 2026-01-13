@@ -1,4 +1,0 @@
-VIEW test_disassembly_Plants AS SELECT
-  Plant_0.Plant,
-  Plant_0.PlantName
-FROM Plant_Plant AS Plant_0

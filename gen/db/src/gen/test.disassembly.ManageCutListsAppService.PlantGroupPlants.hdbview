@@ -1,5 +1,0 @@
-VIEW test_disassembly_ManageCutListsAppService_PlantGroupPlants AS SELECT
-  PlantGroupPlants_0.ID,
-  PlantGroupPlants_0.plantGroup_ID,
-  PlantGroupPlants_0.plant_Plant
-FROM test_disassembly_PlantGroupPlants AS PlantGroupPlants_0

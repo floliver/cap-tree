@@ -1,9 +1,0 @@
-  CONSTRAINT c__test_disassembly_CutListHeaders_plantGroup
-  ON test_disassembly_CutListHeaders
-  FOREIGN KEY(plantGroup_ID)
-  REFERENCES test_disassembly_PlantGroups(ID)
-  ON UPDATE RESTRICT
-  ON DELETE RESTRICT
-  VALIDATED
-  ENFORCED
-  INITIALLY DEFERRED

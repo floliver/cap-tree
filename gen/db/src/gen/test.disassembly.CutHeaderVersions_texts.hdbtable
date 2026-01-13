@@ -1,6 +1,0 @@
-COLUMN TABLE test_disassembly_CutHeaderVersions_texts (
-  locale NVARCHAR(14) NOT NULL,
-  ID NVARCHAR(36) NOT NULL,
-  description NVARCHAR(5000),
-  PRIMARY KEY(locale, ID)
-)

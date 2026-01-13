@@ -1,8 +1,0 @@
-VIEW test_disassembly_ManageCutListsAppService_CutHeaders AS SELECT
-  CutHeaders_0.ID,
-  CutHeaders_0.createdAt,
-  CutHeaders_0.createdBy,
-  CutHeaders_0.modifiedAt,
-  CutHeaders_0.modifiedBy,
-  CutHeaders_0.latestVersion_ID
-FROM test_disassembly_CutHeaders AS CutHeaders_0

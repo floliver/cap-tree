@@ -1,8 +1,0 @@
-VIEW test_disassembly_ManageCutListsAppService_DisassemblyProcessesOfCutListPositions AS SELECT
-  CutListPositions_0.cutListHeader_ID AS cutListHeaderID,
-  cutHeader_1.disassemblyProcess_ID AS dissasemblyProcessID,
-  disassemblyProcess_2.name AS dissasemblyProcessName,
-  disassemblyProcess_2.description AS dissasemblyProcessDescription
-FROM ((test_disassembly_ManageCutListsAppService_CutListPositions AS CutListPositions_0 LEFT JOIN test_disassembly_ManageCutListsAppService_CutHeaderVersions AS cutHeader_1 ON CutListPositions_0.cutHeader_ID = cutHeader_1.ID) LEFT JOIN test_disassembly_ManageCutListsAppService_DisassemblyProcesses AS disassemblyProcess_2 ON cutHeader_1.disassemblyProcess_ID = disassemblyProcess_2.ID)
-WHERE cutHeader_1.disassemblyProcess_ID IS NOT NULL
-GROUP BY CutListPositions_0.cutListHeader_ID, cutHeader_1.disassemblyProcess_ID, disassemblyProcess_2.name, disassemblyProcess_2.description

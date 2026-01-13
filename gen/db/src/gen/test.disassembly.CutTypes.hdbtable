@@ -1,6 +1,0 @@
-COLUMN TABLE test_disassembly_CutTypes (
-  name NVARCHAR(255),
-  descr NVARCHAR(1000),
-  type NVARCHAR(1) NOT NULL,
-  PRIMARY KEY(type)
-)

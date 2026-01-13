@@ -1,5 +1,0 @@
-VIEW test_disassembly_ManageCutListsAppService_CutTypes AS SELECT
-  CutTypes_0.name,
-  CutTypes_0.descr,
-  CutTypes_0.type
-FROM test_disassembly_CutTypes AS CutTypes_0

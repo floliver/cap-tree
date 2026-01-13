@@ -1,1 +1,0 @@
-UNIQUE INVERTED INDEX test_disassembly_BOMHeaderMaterialAssignments_constraint ON test_disassembly_BOMHeaderMaterialAssignments (cutListHeader_ID, disassemblyProcess_ID, plant_Plant)

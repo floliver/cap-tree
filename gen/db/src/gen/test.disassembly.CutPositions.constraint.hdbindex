@@ -1,1 +1,0 @@
-UNIQUE INVERTED INDEX test_disassembly_CutPositions_constraint ON test_disassembly_CutPositions (cutHeader_ID, material_Product)

@@ -1,9 +1,0 @@
-  CONSTRAINT c__test_disassembly_CutTypes_texts_texts
-  ON test_disassembly_CutTypes_texts
-  FOREIGN KEY(type)
-  REFERENCES test_disassembly_CutTypes(type)
-  ON UPDATE RESTRICT
-  ON DELETE CASCADE
-  VALIDATED
-  ENFORCED
-  INITIALLY DEFERRED

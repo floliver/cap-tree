@@ -1,9 +1,0 @@
-VIEW test_disassembly_ProductionOrders AS SELECT
-  A_ProductionOrder_2_0.ManufacturingOrder,
-  A_ProductionOrder_2_0.ManufacturingOrderType,
-  A_ProductionOrder_2_0.Material,
-  A_ProductionOrder_2_0.ProductionPlant,
-  A_ProductionOrder_2_0.TotalQuantity,
-  A_ProductionOrder_2_0.MfgOrderPlannedStartDate,
-  A_ProductionOrder_2_0.MfgOrderPlannedEndDate
-FROM API_PRODUCTION_ORDER_2_SRV_A_ProductionOrder_2 AS A_ProductionOrder_2_0

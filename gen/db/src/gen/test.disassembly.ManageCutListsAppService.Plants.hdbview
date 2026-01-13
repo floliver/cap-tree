@@ -1,4 +1,0 @@
-VIEW test_disassembly_ManageCutListsAppService_Plants AS SELECT
-  Plants_0.Plant,
-  Plants_0.PlantName
-FROM test_disassembly_Plants AS Plants_0

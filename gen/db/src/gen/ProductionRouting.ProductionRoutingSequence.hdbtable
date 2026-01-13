@@ -1,8 +1,0 @@
-COLUMN TABLE ProductionRouting_ProductionRoutingSequence (
-  ProductionRoutingGroup NVARCHAR(8) NOT NULL,
-  ProductionRouting NVARCHAR(2) NOT NULL,
-  ProductionRoutingSequence NVARCHAR(6) NOT NULL,
-  ProductionRoutingSqncIntVers NVARCHAR(2) NOT NULL,
-  SequenceText NVARCHAR(40),
-  PRIMARY KEY(ProductionRoutingGroup, ProductionRouting, ProductionRoutingSequence, ProductionRoutingSqncIntVers)
-)

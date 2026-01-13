@@ -1,1 +1,0 @@
-UNIQUE INVERTED INDEX test_disassembly_CutListHeaders_constraint ON test_disassembly_CutListHeaders (identifier, material_Product)

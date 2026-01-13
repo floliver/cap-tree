@@ -1,7 +1,0 @@
-VIEW test_disassembly_ProductionRoutingHeaders AS SELECT
-  ProductionRoutingHeader_0.ProductionRoutingGroup,
-  ProductionRoutingHeader_0.ProductionRouting,
-  ProductionRoutingHeader_0.ProductionRoutingInternalVers,
-  ProductionRoutingHeader_0.Plant,
-  ProductionRoutingHeader_0.BillOfOperationsDesc
-FROM ProductionRouting_ProductionRoutingHeader AS ProductionRoutingHeader_0

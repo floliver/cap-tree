@@ -1,1 +1,0 @@
-UNIQUE INVERTED INDEX test_disassembly_CutRoutings_constraint ON test_disassembly_CutRoutings (cutHeader_ID, plant_Plant)
